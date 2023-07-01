@@ -1,10 +1,10 @@
 module.exports = [
     {
-        name: 'To Do 1',
+        name: 'item 0',
         id: 1,
     },
     {
-        name: 'To Do 2',
+        name: 'item 1',
         id: 2,
     },
 

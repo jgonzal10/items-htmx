@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 const { v1 } = require('uuid');
 const compression = require('compression');
 
-const lists = require('./data/items');
+const items = require('./data/items');
 
-const todosRouter = require('./routes/items');
+const itemsRouter = require('./routes/items');
 
 const PORT = process.env.PORT || 3000;
 
@@ -19,10 +19,10 @@ app.use(express.static('assets'));
 app.use(compression());
 
 app.get('/', (req, res) => {
-    res.render('index', { lists });
+    res.render('index', { items });
 });
 
-app.use('/todos', todosRouter);
+app.use('/items', itemsRouter);
 
 app.listen(PORT);
 

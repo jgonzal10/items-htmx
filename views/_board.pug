@@ -1,0 +1,7 @@
+include _mixins
+each item in items
+    .item(draggable='true')
+        .item-title #{item.name}
+        .items-cards.sortable(
+            id='item-' + item.id
+        )

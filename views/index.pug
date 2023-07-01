@@ -1,0 +1,25 @@
+doctype html
+include _mixins
+html(lang="en")
+    head
+        title Trello in htmx
+        link(href="/styles.css", rel="stylesheet")
+    body
+        .app
+            .header htmx
+                    include _board
+
+    script(src="https://unpkg.com/htmx.org@1.3.1")
+    script(src="https://unpkg.com/hyperscript.org@0.0.8")
+    script(src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js")
+    script.
+        htmx.onLoad(function(content) {
+            var sortables = content.querySelectorAll(".sortable");
+            for (var i = 0; i < sortables.length; i++) {
+                var sortable = sortables[i];
+                new Sortable(sortable, {
+                    animation: 150,
+                    group: 'shared',
+                });
+            }
+        })

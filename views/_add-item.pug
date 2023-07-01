@@ -1,0 +1,15 @@
+include _mixins
+#add-item.add-item-editor
+  form(hx-post="/items", hx-target="#board")
+    .item-title-edit
+      input.item-title-textarea(type="text", maxlength="30", name="name", placeholder='Enter item title...' style='width: 245px; height: 17px;', autofocus="true")
+    .edit-buttons
+      button.edit-button(type="submit", tabindex='0' style='background-color: rgb(90, 172, 68);') Add item
+      button.edit-button-cancel(
+        type="button",
+        tabindex='0'
+        hx-get="/items/cancel"
+        hx-target="#add-item",
+        hx-swap="outerHTML"
+        )
+        +icon-close()
